@@ -12,7 +12,9 @@ export function AuthProvider({ children }) {
     const token = localStorage.getItem('token');
     if (!token) { setLoading(false); return; }
     try {
-      const { data } = await api.get('https://banking-app-1-6jsx.onrender.com/auth/me');
+      const { data } = await api.get(`${import.meta.env.VITE_API_URL}/auth/me`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       setRole(data.role);
       setProfile(data.role === 'admin' ? data.user : data.account);
     } catch {
