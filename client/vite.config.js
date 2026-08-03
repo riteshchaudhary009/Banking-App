@@ -6,8 +6,8 @@ export default defineConfig({
   server: {
     port: 5173,
     proxy: {
-      '/api': 'http://localhost:5000',
-      '/uploads': 'http://localhost:5000',
+      '/api': 'https://banking-app-1-6jsx.onrender.com',
+      '/uploads': 'https://banking-app-1-6jsx.onrender.com',
     },
   },
 });
